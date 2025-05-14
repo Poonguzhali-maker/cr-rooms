@@ -1,0 +1,14 @@
+<form [formGroup]="basicDetailsForm">
+<mat-form-field>
+    <mat-label for="name">Property Namee</mat-label>
+    <mat-error *ngIf="basicDetailsForm?.controls?.['propertyName']?.hasError('required')">Property name
+        is required</mat-error>
+    <input matInput type="text" formControlName="propertyName">
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label for="name">Property Description</mat-label>
+    <input matInput type="text" formControlName="propertyDescription">
+</mat-form-field>
+</form>
+

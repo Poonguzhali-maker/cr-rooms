@@ -1,0 +1,30 @@
+<form [formGroup]="bookingDetailsForm" (ngSubmit)="onSubmit()">
+
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Today</mat-radio-button>
+        <mat-radio-button value="2">Tomorrow</mat-radio-button>
+        <mat-radio-button value="2">week</mat-radio-button>
+    </mat-radio-group>
+    <mat-form-field>
+        <mat-label>Property Name</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Check-in Date/Check-out Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Booking Id:</mat-label>
+        <input matInput>
+    </mat-form-field>
+
+    <button mat-fab extended>Reset</button>
+     <button mat-button>Basic</button>
+        
+      
+    <button mat-raised-button>Basic</button>
+  
+</form>
