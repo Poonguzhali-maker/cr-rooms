@@ -60,12 +60,12 @@
                 addUsersForm.controls['phoneNumber'].hasError('required') )
                 {<mat-error>Phone Number is Required</mat-error>}
             </mat-form-field>
+<div class="address-group">
 
-            <div>
-                <h2>Addresses</h2>
-                @for (address of addresses.controls; trackBy:="" address.; let i = index) {
-                <div  [formGroupName]="i"
-                    class="address-group">
+            <h2>Addresses</h2>
+            <div formArrayName="addresses">
+                @for (address of addresses.controls; track address; let i = $index) {
+                <div [formGroupName]="i" >
 
                     <mat-form-field>
                         <mat-label for="street">Street</mat-label>
@@ -93,10 +93,12 @@
                         {<mat-error>Post code is required</mat-error>}
                     </mat-form-field>
                     <button mat-raised-button color="warn" (click)="removeAddress(i)">Remove Address</button>
-                </div>
+                </div>}
                 <button mat-raised-button color="primary" (click)="addAddress()">Add Address</button>
 
-            </div>}
+            </div>
+            </div>
+
         </div>
         <p><mat-slide-toggle>Whatsapp</mat-slide-toggle></p>
         <p><mat-slide-toggle>Telegram</mat-slide-toggle></p>
