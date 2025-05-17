@@ -10,7 +10,7 @@
     <form [formGroup]="addPropertyForm" (ngSubmit)="onSubmit()">
         <div>
             <div class="addPropertyFormRow">
-                <mat-form-field>
+                <mat-form-field appearance="fill">
                     <mat-label for="name">Property Name</mat-label>
                     <input matInput type="text" formControlName="propertyName">
                     @if (addPropertyForm.controls['propertyName'].touched &&
@@ -20,7 +20,7 @@
 
                 </mat-form-field>
 
-                <mat-form-field>
+                <mat-form-field appearance="fill">
                     <input matInput type="text" formControlName="propertyDescription">
                     <mat-error>Property Description should not be above 500 letters</mat-error>
                     <mat-label for="name">Property Description</mat-label>

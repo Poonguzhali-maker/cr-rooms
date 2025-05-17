@@ -1,9 +1,9 @@
- import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder, FormGroup, } from '@angular/forms';
-import{ MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -29,7 +29,7 @@ constructor(private fb:FormBuilder){
 
   this.addPropertyForm=this.fb.group({
     propertyName: ['', [Validators.required]],
-    propertyDescription:['', [Validators.required, Validators.minLength(500)]],
+    propertyDescription:['', [Validators.required, Validators.maxLength(500)]],
     propertyType: ['', [Validators.required]],
     cityName: ['', [Validators.required, ]],
     pincode: ['', [Validators.required, Validators.maxLength(6)]],
@@ -55,10 +55,10 @@ onSubmit() {
     const userDetails = this.addPropertyForm.value;
     console.log('Form is valid. Submitted:', this.addPropertyForm.value);
     
-
-
-    // You can now send `formData` to your API or process it as needed
   } 
+  if (this.addPropertyForm.invalid) {
+  console.log(this.addPropertyForm.controls);
+}
 }
 
 }

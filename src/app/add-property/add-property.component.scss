@@ -1,11 +1,7 @@
-mat-card{
-    padding:50px 40px 30px 30px;
-font-weight: bold;
 
-    
-}
 
 form, mat-card{
+    padding-top:50px;
     padding-left: 10rem;
     padding-right:30px;}
 
@@ -13,6 +9,18 @@ form, mat-card{
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap:40px;
+    gap:60px;
 }
-    
+
+mat-form-field{
+    width:100%;
+}
+
+button[mat-raised-button] {
+  display: block;
+  margin: 20px auto;
+}
+
+a{
+    padding-top:40px;
+}
