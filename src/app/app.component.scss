@@ -1,40 +1,40 @@
-.homepage{
+.homepage {
     overflow-y: scroll;
 
 }
 
 
-.mattoolbar{
-    background-color: royalblue;  
-
+.mattoolbar {
+    background-color: royalblue !important;
+    
 }
-.mattoolbar2{
+
+.mattoolbar2 {
     display: flex;
     flex-direction: row;
+    
 }
 
-.jkbooking{
+.jkbooking {
     font-size: large;
     font-weight: bold;
-    color:white;
+    color: white;
 }
 
-.routerlink{
-    color:white;
-    font-weight:600;
-    margin-left:1rem;
+.routerlink a.active-link,
+.routerlink a:active {
+    background-color: #022f83;
+    color: white;
+    border: 2px solid white;
+    border-radius: 40px;
 
-.routerlink:hover{
-    cursor: pointer;
-    background-color: blue;
-    border-radius: 4px;
-}
 }
 
-.spacer{
-    flex:1;
+.spacer {
+    flex: 1;
 }
 
-.mainfooter{
+
+.mainfooter {
     background-color: royalblue;
 }
