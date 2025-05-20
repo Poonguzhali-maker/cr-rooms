@@ -23,27 +23,28 @@ import { ListUsersComponent } from './user/list-users/list-users.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'add-property', pathMatch: 'full' },
-    { path: 'add-property', component: AddPropertyComponent },
+    { path: 'add-property', component: AddPropertyComponent,
+        children:[{path:'basic-details',component:BasicDetailsComponent}] },
+
     { path: 'booking-details', component: BookingDetailsComponent },
     { path: 'list-property', component: ListPropertyComponent },
     { path: 'popular-places', component: PopularPlacesComponent },
     { path: 'reports', component: ReportsComponent },
     { path: 'sponsors', component: SponsorsComponent },
     { path: 'user', component: UserComponent },
-    {path:'aboutus', component:AboutusComponent},
-    {path:'privacy-policy', component:PrivacyPolicyComponent},
-    {path:'terms-and-conditions', component:TermsAndConditionsComponent},
-    {path:'faqs', component:FaqsComponent},
-    {path:'contact-us', component:ContactUsComponent},
-    {path:'manage-permission', component:ManagePermissionComponent},
-    {path:'manage-roles', component:ManageRolesComponent},
-    {path:'manage-master-data', component:ManageMasterDataComponent},
-    {path:'log-out', component:LogOutComponent},
-    {path:'basic-details',component:BasicDetailsComponent},
-    {path:'add-users',component:AddUsersComponent},
-    {path:'list-users', component:ListUsersComponent},
-    
-    
+    { path: 'aboutus', component: AboutusComponent },
+    { path: 'privacy-policy', component: PrivacyPolicyComponent },
+    { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+    { path: 'faqs', component: FaqsComponent },
+    { path: 'contact-us', component: ContactUsComponent },
+    { path: 'manage-permission', component: ManagePermissionComponent },
+    { path: 'manage-roles', component: ManageRolesComponent },
+    { path: 'manage-master-data', component: ManageMasterDataComponent },
+    { path: 'log-out', component: LogOutComponent },
+    { path: 'add-users', component: AddUsersComponent },
+    { path: 'list-users', component: ListUsersComponent },
 
-    
+
+
+
 ];

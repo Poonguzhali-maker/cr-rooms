@@ -1,9 +1,11 @@
 <section>
-    <a mat-button routerlink="/basic-details">
+    
+    <a (click)="onBasicDetailsClick()"mat-button routerLink="/add-property/basic-details">
         Basic Details
     </a>
 
     <h3>Property Name and Address</h3>
+    
         
 <div class="form">
     <form [formGroup]="addPropertyForm" (ngSubmit)="onSubmit()">

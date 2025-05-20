@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -8,16 +8,17 @@ import { MatInputModule } from '@angular/material/input';
 import { Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-add-property',
   standalone:true,
-  imports: [MatButtonModule, ReactiveFormsModule,CommonModule,MatSelectModule, MatInputModule, MatFormFieldModule, MatCardModule, ],
+  imports: [MatButtonModule, RouterOutlet, RouterLink, ReactiveFormsModule,CommonModule,MatSelectModule, MatInputModule, MatFormFieldModule, MatCardModule, ],
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.scss']
 })
-export class AddPropertyComponent {
+export class AddPropertyComponent implements OnInit{
 //public is a access modifiers keyword to define visibility and accessibility of class//
   public addPropertyForm!: FormGroup
 password:string='';
@@ -25,8 +26,11 @@ password:string='';
 //constructor is a special method that is automatically invoked when class created, 
 //here i create constructor to with dependency injection to inject component 
 //or initialising the class//
-constructor(private fb:FormBuilder){
+constructor(private fb:FormBuilder){}
 
+  ngOnInit():void{
+
+  
   this.addPropertyForm=this.fb.group({
     propertyName: ['', [Validators.required]],
     propertyDescription:['', [Validators.required, Validators.maxLength(500)]],
@@ -41,10 +45,20 @@ constructor(private fb:FormBuilder){
 
   })
 
-  
 
 }
 
+ onBasicDetailsClick(): void {
+    this.markAllFieldsTouched(this.addPropertyForm);
+  }
+
+private markAllFieldsTouched(FormGroup: FormGroup):void {
+  Object.values(FormGroup.controls).forEach(control => {
+    control.markAsTouched();
+    control.updateValueAndValidity();
+  });
+
+}
 onSubmit() {
 
   console.log(this.addPropertyForm);
