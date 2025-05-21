@@ -18,6 +18,8 @@ import { ManagePermissionComponent } from './manage-permission/manage-permission
 import { LogOutComponent } from './log-out/log-out.component';
 import { AddUsersComponent } from './user/add-users/add-users.component';
 import { ListUsersComponent } from './user/list-users/list-users.component';
+import { ListSponsorsComponent } from './sponsors/list-sponsors/list-sponsors.component';
+import { AddSponsorsComponent } from './sponsors/add-sponsors/add-sponsors.component';
 
 
 
@@ -30,8 +32,19 @@ export const routes: Routes = [
     { path: 'list-property', component: ListPropertyComponent },
     { path: 'popular-places', component: PopularPlacesComponent },
     { path: 'reports', component: ReportsComponent },
-    { path: 'sponsors', component: SponsorsComponent },
-    { path: 'user', component: UserComponent },
+    { path: 'sponsors', component: SponsorsComponent,
+        children:[{path:'add-sponsors', component:AddSponsorsComponent},
+            {path:'list-sponsors', component:ListSponsorsComponent}]
+     },
+
+    { path: 'add-property', component: AddPropertyComponent,
+        children:[{path:'basic-details',component:BasicDetailsComponent}] },
+
+    { path: 'user', component: UserComponent ,
+        children:[{path:'add-users', component:AddUsersComponent},
+            {path:'list-users', component:ListUsersComponent}]
+     },
+
     { path: 'aboutus', component: AboutusComponent },
     { path: 'privacy-policy', component: PrivacyPolicyComponent },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
@@ -41,9 +54,7 @@ export const routes: Routes = [
     { path: 'manage-roles', component: ManageRolesComponent },
     { path: 'manage-master-data', component: ManageMasterDataComponent },
     { path: 'log-out', component: LogOutComponent },
-    { path: 'add-users', component: AddUsersComponent },
-    { path: 'list-users', component: ListUsersComponent },
-
+    
 
 
 
