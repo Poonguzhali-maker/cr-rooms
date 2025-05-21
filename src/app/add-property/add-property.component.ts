@@ -8,13 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 import { Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, } from '@angular/router';
 
 
 @Component({
   selector: 'app-add-property',
   standalone:true,
-  imports: [MatButtonModule, RouterOutlet, RouterLink, ReactiveFormsModule,CommonModule,MatSelectModule, MatInputModule, MatFormFieldModule, MatCardModule, ],
+  imports: [MatButtonModule, RouterLink, ReactiveFormsModule,CommonModule,MatSelectModule, MatInputModule, MatFormFieldModule, MatCardModule, ],
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.scss']
 })
