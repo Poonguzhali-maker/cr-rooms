@@ -54,8 +54,5 @@ export const routes: Routes = [
     { path: 'manage-roles', component: ManageRolesComponent },
     { path: 'manage-master-data', component: ManageMasterDataComponent },
     { path: 'log-out', component: LogOutComponent },
-    
-
-
 
 ];
