@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AddSponsorsComponent } from './add-sponsors/add-sponsors.component';
 
 @Component({
   selector: 'app-sponsors',
@@ -10,4 +11,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class SponsorsComponent {
 
-}
+   
+  }
