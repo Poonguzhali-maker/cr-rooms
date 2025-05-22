@@ -42,8 +42,7 @@ export const routes: Routes = [
 
     { path: 'user', component: UserComponent ,
         children:[{path:'add-users', component:AddUsersComponent},
-            {path:'list-users', component:ListUsersComponent}]
-     },
+                {path:'list-users', component:ListUsersComponent}] },
 
     { path: 'aboutus', component: AboutusComponent },
     { path: 'privacy-policy', component: PrivacyPolicyComponent },
