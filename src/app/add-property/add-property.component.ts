@@ -70,9 +70,9 @@ onSubmit() {
     console.log('Form is valid. Submitted:', this.addPropertyForm.value);
     
   } 
-  if (this.addPropertyForm.invalid) {
-  console.log(this.addPropertyForm.controls);
-}
+  else{
+    console.log('addPropertyForm is invalid.controls:',this.addPropertyForm.controls);
+  }
 }
 
 }

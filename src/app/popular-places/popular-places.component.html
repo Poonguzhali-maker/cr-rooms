@@ -1,1 +1,42 @@
-<p>popular-places works!</p>
+<h1>Popular Places</h1>
+
+<div class="form">
+    <form [formGroup]="popularPlacesForm" (ngsubmit)="onSubmit()">
+        <div class="formRow">
+            <mat-form-field appearance="fill">
+                <mat-label for="name">Name</mat-label>
+                <input matInput type="text" formControlName="name">
+                @if (popularPlacesForm.controls['name'].touched &&
+                popularPlacesForm.controls['name'].hasError('required'))
+                {<mat-error>Name is required</mat-error>}
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Type</mat-label>
+                <mat-select formControlName="type">
+                    <mat-option value="one">Temple</mat-option>
+                    <mat-option value="two">Falls</mat-option>
+                    <mat-option value="three">Hotel</mat-option>
+                    <mat-option value="four">Park</mat-option>
+                </mat-select>
+                @if (popularPlacesForm.controls['type'].hasError('required'))
+                {<mat-error>Type is required</mat-error>}
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label for="name">Latitude</mat-label>
+                <input matInput type="text" formControlName="latitude">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label for="name">Longitude</mat-label>
+                <input matInput type="text" formControlName="longitude">
+            </mat-form-field>
+
+            <p><mat-slide-toggle>Whatsapp</mat-slide-toggle></p>
+        </div>
+    </form>
+</div>
+
+<button mat-raised-button>Submit</button>
