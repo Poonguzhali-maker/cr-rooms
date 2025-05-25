@@ -1,2 +1,30 @@
 
-{{name}}
+{{name}} <!--Interpolation-->
+
+<label>Please add Branch Name</label>
+
+<!--Event binding-->
+<button (click)="updateBranch()">Update Branch Info</button>
+<!--twoway binding-->
+<input type="text" [(ngModel)]="enteredBranch">
+
+<h2>Entered Branch is: {{enteredBranch}}</h2>
+
+
+<!-- Two-way binding for manager name -->
+<label>Branch Manager Name</label>
+
+<input type="text" [(ngModel)]="managerName">
+<h3>Manager Name is: {{managerName}}</h3>
+<br>
+
+<!-- Two-way binding for branch code -->
+<label>Branch Code</label>
+<br>
+<input type="text" [(ngModel)]="branchCode">
+<h3>Branch Code is: {{branchCode}}</h3>
+<br>
+
+<!-- Event binding example -->
+<button (click)="updateBranch()">Update Branch Info</button>
+  
