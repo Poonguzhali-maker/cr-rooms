@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AboutusComponent } from '../aboutus.component';
 
 
 @Component({
   selector: 'app-branches',
-  imports: [FormsModule],
+  imports: [FormsModule, ],
   templateUrl: './branches.component.html',
   styleUrl: './branches.component.scss'
 })
@@ -16,12 +17,19 @@ export class BranchesComponent  {
   managerName: string='';
   branchCode: string='';
 
+
+@Input() branchMessage:string='';
+
+ @Output() branchUpdated = new EventEmitter<string>(); 
+
   constructor() {}
 
   ngOnInit() {}
 //method name as updateBranch is declared with the 'this' instance with the 'name' property
   updateBranch(){
     this.name='value';
+
+    this.branchUpdated.emit(this.enteredBranch);
 
 
 

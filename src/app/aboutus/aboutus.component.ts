@@ -8,5 +8,9 @@ import { BranchesComponent } from './branches/branches.component';
   styleUrl: './aboutus.component.scss'
 })
 export class AboutusComponent {
+parentMessage="Welcome";
+handleBranchUpdate(updateBranch:string){
 
+  console.log("Received from child:", updateBranch);
+}
 }
