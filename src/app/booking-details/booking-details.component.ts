@@ -10,11 +10,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {provideNativeDateAdapter} from '@angular/material/core';
 import {ChangeDetectionStrategy} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { HotelBookingComponent } from "./hotel-booking/hotel-booking.component";
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-booking-details',
-  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule,MatRadioModule, ],
+  imports: [CommonModule, MatButtonModule, MatFormFieldModule, MatIconModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatRadioModule, HotelBookingComponent],
   templateUrl: './booking-details.component.html',
   styleUrl: './booking-details.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -28,13 +30,26 @@ public bookingDetailsForm!:FormGroup
 
 constructor(private fb:FormBuilder){
 
-  this.bookingDetailsForm=this.fb.group({
 
+  this.bookingDetailsForm=this.fb.group({
+  propertyName: [''],
+  bookingId: [''],
+  date: [''],
+  dateOption: [''] // For radio buttons (Today, Tomorrow, Week)
+  
   }
 
-  )
+   )
 }
 
+selectedHotel = 'Grand Palace Hotel';
+lastBooking: { guest: string; rooms: number } | null = null;
+
+
+handleBooking(booking: { guest: string; rooms: number }) {
+    this.lastBooking = booking;
+
+ }
 
 onSubmit() {
   if (this.bookingDetailsForm.valid) {

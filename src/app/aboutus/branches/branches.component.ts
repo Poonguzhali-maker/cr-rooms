@@ -15,7 +15,7 @@ export class BranchesComponent  {
 //eventBinding//
   enteredBranch:string='Nellai';
   managerName: string='';
-  branchCode: string='';
+  branchCode: string='1234';
 
 
 @Input() branchMessage:string='';

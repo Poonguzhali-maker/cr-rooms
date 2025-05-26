@@ -1,0 +1,23 @@
+
+  
+  
+<div>
+  <!--interpolation for hotelName comes from parent template using input-->
+    <h3>Book a room at {{ hotelName }}</h3>
+    <form (ngSubmit)="submitBooking()">
+
+      <label>
+        Your Name:
+        <!--twoway binding-->
+        <input [(ngModel)]="guestName" name="guestName" required>
+      </label><br>
+
+      <label>
+        Number of Rooms:
+        <input type="number" [(ngModel)]="roomCount" name="roomCount" required min="1">
+      </label><br>
+
+      <button type="submit">Book Now</button>
+
+    </form>
+</div>
