@@ -10,7 +10,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { FaqsComponent } from './faqs/faqs.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
+
 import { BasicDetailsComponent } from './add-property/basic-details/basic-details.component';
 import { ManageMasterDataComponent } from './manage-master-data/manage-master-data.component';
 import { ManageRolesComponent } from './manage-roles/manage-roles.component';
@@ -20,6 +20,8 @@ import { AddUsersComponent } from './user/add-users/add-users.component';
 import { ListUsersComponent } from './user/list-users/list-users.component';
 import { ListSponsorsComponent } from './sponsors/list-sponsors/list-sponsors.component';
 import { AddSponsorsComponent } from './sponsors/add-sponsors/add-sponsors.component';
+import { BookingFormComponent } from './booking-form/booking-form.component';
+import { BookingSummaryComponent } from './booking-summary/booking-summary.component';
 
 
 
@@ -43,12 +45,13 @@ export const routes: Routes = [
     { path: 'user', component: UserComponent ,
         children:[{path:'add-users', component:AddUsersComponent},
                 {path:'list-users', component:ListUsersComponent}] },
-
+{ path: 'bookingForm', component: BookingFormComponent },
+{ path: 'bookingSummary', component: BookingSummaryComponent },
     { path: 'aboutus', component: AboutusComponent },
     { path: 'privacy-policy', component: PrivacyPolicyComponent },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
     { path: 'faqs', component: FaqsComponent },
-    { path: 'contact-us', component: ContactUsComponent },
+
     { path: 'manage-permission', component: ManagePermissionComponent },
     { path: 'manage-roles', component: ManageRolesComponent },
     { path: 'manage-master-data', component: ManageMasterDataComponent },
