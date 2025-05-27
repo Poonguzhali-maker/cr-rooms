@@ -1,23 +1,21 @@
-
-  
-  
 <div>
   <!--interpolation for hotelName comes from parent template using input-->
-    <h3>Book a room at {{ hotelName }}</h3>
-    <form (ngSubmit)="submitBooking()">
+  <h3>Book a room at {{ hotelName }}</h3>
 
-      <label>
-        Your Name:
-        <!--twoway binding-->
-        <input [(ngModel)]="guestName" name="guestName" required>
-      </label><br>
+  <form (ngSubmit)="submitBooking()">
+    <mat-form-field>
+      <mat-label>Your Name:</mat-label>
+      <!--twoway binding-->
+      <input matInput [(ngModel)]="guestName" name="guestName" required><br>
+    </mat-form-field>
 
-      <label>
-        Number of Rooms:
-        <input type="number" [(ngModel)]="roomCount" name="roomCount" required min="1">
-      </label><br>
+    <mat-form-field>
+      <mat-label>
+        Number of Rooms:</mat-label>
+      <input matInput type="number" [(ngModel)]="roomCount" name="roomCount" required min="1">
+    </mat-form-field>
+    <button type="submit">Book Now</button>
+  </form>
 
-      <button type="submit">Book Now</button>
 
-    </form>
 </div>

@@ -4,11 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-hotel-booking',
-  imports: [FormsModule, MatButtonModule, ReactiveFormsModule,MatSelectModule, MatFormFieldModule],
+  imports: [FormsModule, MatInputModule, MatButtonModule, ReactiveFormsModule,MatSelectModule, MatFormFieldModule],
   templateUrl: './hotel-booking.component.html',
   styleUrl: './hotel-booking.component.scss'
 })
