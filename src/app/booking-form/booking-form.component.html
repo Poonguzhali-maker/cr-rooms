@@ -1,7 +1,9 @@
 <h3>Hotel Booking Form</h3>
+
 <input [(ngModel)]="booking.name" placeholder="Your Name" />
 <input [(ngModel)]="booking.hotel" placeholder="Hotel Name" />
 <input type="date" [(ngModel)]="booking.checkIn" />
 <input type="date" [(ngModel)]="booking.checkOut" />
+<br>
 <br>
 <button (click)="submitBooking()">Book</button>
