@@ -4,6 +4,8 @@
 <input [(ngModel)]="booking.hotel" placeholder="Hotel Name" />
 <input type="date" [(ngModel)]="booking.checkIn" />
 <input type="date" [(ngModel)]="booking.checkOut" />
+<input type="number"[(ngModel)]="booking.ratePerNight" name="ratePerNight"[placeholder]="'e.g.'+ booking.ratePerNight">
+
 <br>
 <br>
 <button (click)="submitBooking()">Book</button>

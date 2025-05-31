@@ -8,7 +8,8 @@ export class SimpleShareDataService {
     name: '',
     hotel: '',
     checkIn: '',
-    checkOut: ''
+    checkOut: '',
+    ratePerNight: 0
   };
 
 
@@ -29,5 +30,19 @@ export class SimpleShareDataService {
 
     return this.bookingData;
   }
+
+  //using service to add business logic through components//
+  getStayDuration(): number {
+    const checkIn = new Date(this.bookingData.checkIn);
+    const checkOut = new Date(this.bookingData.checkOut);
+    const timeDiff = checkOut.getTime()-checkIn.getTime();
+    return Math.max(timeDiff/(1000*3600*24));
+
+  }
+//1000*3600*24 converting millisec to number of days//
+
+getTotalPrice(): number {
+  return this.getStayDuration() * this.bookingData.ratePerNight;
+}
 
 }

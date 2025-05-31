@@ -2,6 +2,10 @@
 import { Component } from '@angular/core';
 import { SimpleShareDataService } from '../simple-share-data.service';
 import { FormsModule } from '@angular/forms';
+
+
+
+
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
@@ -12,7 +16,8 @@ export class BookingFormComponent {
     name: '',
     hotel: '',
     checkIn: '',
-    checkOut: ''
+    checkOut: '',
+    ratePerNight: 100
   };
 
   constructor(private simpleShareService: SimpleShareDataService) {}

@@ -11,11 +11,17 @@ import { CommonModule } from '@angular/common';
 export class BookingSummaryComponent {
 
    booking: any;
+   totalPrice: number =0;
+   duration:number=0;
 
   constructor(private simpleShareDataService: SimpleShareDataService) {}
 
   loadBooking() {
     this.booking = this.simpleShareDataService.getBooking();
+    this.totalPrice=this.simpleShareDataService.getTotalPrice();
+    this.duration=this.simpleShareDataService.getStayDuration();
+    
+
   }
 
 }
