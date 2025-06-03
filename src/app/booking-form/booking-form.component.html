@@ -1,11 +1,35 @@
 <h3>Hotel Booking Form</h3>
+<div class="form">
+  <form (ngSubmit)="submitBooking()">
 
-<input [(ngModel)]="booking.name" placeholder="Your Name" />
-<input [(ngModel)]="booking.hotel" placeholder="Hotel Name" />
-<input type="date" [(ngModel)]="booking.checkIn" />
-<input type="date" [(ngModel)]="booking.checkOut" />
-<input type="number"[(ngModel)]="booking.ratePerNight" name="ratePerNight"[placeholder]="'e.g.'+ booking.ratePerNight">
+    <mat-form-field appearance="fill">
+      <mat-label>Your Name</mat-label>
+      <input matInput [(ngModel)]="booking.name" name="name" placeholder="Your Name" required />
+    </mat-form-field>
 
-<br>
-<br>
-<button (click)="submitBooking()">Book</button>
+    <mat-form-field appearance="fill">
+      <mat-label>Hotel Name</mat-label>
+      <input matInput [(ngModel)]="booking.hotel" name="hotel" placeholder="Hotel Name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Check-In</mat-label>
+      <input matInput type="date" [(ngModel)]="booking.checkIn" name="checkIn" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Check-Out</mat-label>
+      <input matInput type="date" [(ngModel)]="booking.checkOut" name="checkOut" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Rate per Night</mat-label>
+      <input matInput type="number" [(ngModel)]="booking.ratePerNight"
+             name="ratePerNight" placeholder="e.g. 100" required />
+    </mat-form-field>
+
+    <br /><br />
+    <button mat-raised-button color="primary" type="submit">Book</button>
+
+  </form>
+</div>

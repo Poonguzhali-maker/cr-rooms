@@ -2,14 +2,18 @@
 import { Component } from '@angular/core';
 import { SimpleShareDataService } from '../simple-share-data.service';
 import { FormsModule } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  imports:[FormsModule]
+  imports:[FormsModule, MatButtonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule]
 })
 export class BookingFormComponent {
   booking = {
@@ -20,9 +24,21 @@ export class BookingFormComponent {
     ratePerNight: 100
   };
 
-  constructor(private simpleShareService: SimpleShareDataService) {}
+  constructor(private simpleShareDataService: SimpleShareDataService,
+               private router: Router  ) {}
 
-  submitBooking() {
-    this.simpleShareService.setBooking(this.booking);
-  }
+  submitBooking(): void {
+  this.simpleShareDataService.setBooking(this.booking);
+
+  this.simpleShareDataService.submitBookingToServer().subscribe({
+    next: (res: any) => {
+      console.log('✅ Booking saved:', res);
+      this.router.navigate(['/bookingSummary']);
+    },
+    error: (err: any) => {
+      console.error('Booking failed:', err);
+    }
+  });
+}
+
 }
