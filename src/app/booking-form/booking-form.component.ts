@@ -15,7 +15,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   templateUrl: './booking-form.component.html',
   imports:[FormsModule, MatButtonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule]
 })
+
+
 export class BookingFormComponent {
+//object to store input data used for two way binding through [(ngModel)]
   booking = {
     name: '',
     hotel: '',
@@ -24,12 +27,15 @@ export class BookingFormComponent {
     ratePerNight: 100
   };
 
+  //injecting two service SimpleShareDataService for submit data, 'router' is to navigate /booking summary after click Book button//
   constructor(private simpleShareDataService: SimpleShareDataService,
-               private router: Router  ) {}
+ private router: Router  ) {}
 
+//function trigger when user submit the form//
   submitBooking(): void {
+//to save data and submitting data to server//    
   this.simpleShareDataService.setBooking(this.booking);
-
+//calls the service to post data to API, 'subscribe()' listens the response asynchronously// 
   this.simpleShareDataService.submitBookingToServer().subscribe({
     next: (res: any) => {
       console.log('✅ Booking saved:', res);

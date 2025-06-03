@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class SimpleShareDataService {
   };
 
 
-  constructor() {
+  constructor(private http:HttpClient) {
     console.log('Hotel booking confirmed');
   }
 
@@ -28,7 +30,7 @@ export class SimpleShareDataService {
   //bookingSummary component use this to retrieve stored data ie getter method// 
   getBooking() {
 
-    return this.bookingData;
+    return this.bookingData ??{};
   }
 
   //using service to add business logic through components//
@@ -43,6 +45,20 @@ export class SimpleShareDataService {
 
 getTotalPrice(): number {
   return this.getStayDuration() * this.bookingData.ratePerNight;
+}
+
+//retrieve data from api//
+
+getAllBookings():Observable<any>{
+  const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+  return this.http.get(apiUrl);
+}
+
+//service using httpClient for posting data to api//
+submitBookingToServer(): Observable<any> {
+
+const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+return this.http.post<any>(apiUrl, this.bookingData)
 }
 
 }
