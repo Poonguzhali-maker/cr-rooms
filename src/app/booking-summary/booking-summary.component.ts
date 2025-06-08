@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SimpleShareDataService } from '../simple-share-data.service';
 import { CommonModule } from '@angular/common';
+import { CurrencyPipe,DatePipe,UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-booking-summary',
-  imports: [CommonModule],
+  imports: [CommonModule, CurrencyPipe,DatePipe, UpperCasePipe],
   templateUrl: './booking-summary.component.html',
   styleUrl: './booking-summary.component.scss'
 })
