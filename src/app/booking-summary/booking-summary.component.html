@@ -5,7 +5,7 @@
 <div *ngIf="loadBooking">
   <p><strong>Name:</strong> {{ booking?.name | uppercase }}</p>
   <p><strong>Hotel:</strong> {{ booking.hotel }}</p>
-  <p><strong>Check-in:</strong> {{ booking.checkIn | date:'fullDate'}}</p>
+  <p><strong>Check-in:</strong> {{ booking.checkIn }}</p>
   <p><strong>Check-out:</strong> {{ booking.checkOut }}</p>
   <p><strong>Nights:</strong> {{ duration }}</p>
   <p><strong>Price per night:</strong> £{{ booking.ratePerNight | currency:'GBP'}}</p>

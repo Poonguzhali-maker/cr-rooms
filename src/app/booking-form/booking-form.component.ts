@@ -7,13 +7,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { ChangeDetectionStrategy } from '@angular/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  imports:[FormsModule, MatButtonModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule]
+  imports:[FormsModule, MatButtonModule, MatDatepickerModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule],
+  providers: [provideNativeDateAdapter()],
+  changeDetection:ChangeDetectionStrategy.OnPush, 
 })
 
 

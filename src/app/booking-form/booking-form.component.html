@@ -12,20 +12,27 @@
       <input matInput [(ngModel)]="booking.hotel" name="hotel" placeholder="Hotel Name" required />
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Check-In</mat-label>
-      <input matInput type="date" [(ngModel)]="booking.checkIn" name="checkIn" required />
-    </mat-form-field>
+ <mat-form-field>
+  <mat-label>Check-In</mat-label>
+  <input matInput [matDatepicker]="picker1" [(ngModel)]="booking.checkIn" name="checkIn">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+  <mat-datepicker #picker1></mat-datepicker>  <!-- Declared here -->
+</mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Check-Out</mat-label>
-      <input matInput type="date" [(ngModel)]="booking.checkOut" name="checkOut" required />
-    </mat-form-field>
+<mat-form-field>
+  <mat-label>Check-Out</mat-label>
+  <input matInput [matDatepicker]="picker2" [(ngModel)]="booking.checkOut" name="checkOut">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+  <mat-datepicker #picker2></mat-datepicker>  <!-- Declared here -->
+</mat-form-field>
+
 
     <mat-form-field appearance="fill">
       <mat-label>Rate per Night</mat-label>
-      <input matInput type="number" [(ngModel)]="booking.ratePerNight"
-             name="ratePerNight" placeholder="e.g. 100" required />
+      <input matInput type="number" [(ngModel)]="booking.ratePerNight" name="ratePerNight" placeholder="e.g. 100"
+        required />
     </mat-form-field>
 
     <br /><br />
