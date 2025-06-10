@@ -39,9 +39,6 @@ export const routes: Routes = [
             {path:'list-sponsors', component:ListSponsorsComponent}]
      },
 
-    { path: 'add-property', component: AddPropertyComponent,
-        children:[{path:'basic-details',component:BasicDetailsComponent}] },
-
     { path: 'user', component: UserComponent ,
         children:[{path:'add-users', component:AddUsersComponent},
                 {path:'list-users', component:ListUsersComponent}] },

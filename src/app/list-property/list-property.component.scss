@@ -1,0 +1,28 @@
+.top-nav{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:flex-start;
+    padding:16px;
+    
+}
+
+
+mat-radio-button{
+    color:pink
+
+}
+
+table{
+    font-family: arial,sans-serif;
+    width:100%;
+    border-collapse:separate;
+}
+
+td,th{
+    
+    text-align:left;
+    padding:18px;
+}
+
+
