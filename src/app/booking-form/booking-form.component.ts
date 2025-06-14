@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { SimpleShareDataService } from '../simple-share-data.service';
+import { SimpleShareDataService } from '../services/simple-share-data.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';

@@ -27,23 +27,28 @@ import { BookingSummaryComponent } from './booking-summary/booking-summary.compo
 
 export const routes: Routes = [
     { path: '', redirectTo: 'add-property', pathMatch: 'full' },
-    { path: 'add-property', component: AddPropertyComponent,
-        children:[{path:'basic-details',component:BasicDetailsComponent}] },
-
+    {
+        path: 'add-property', component: AddPropertyComponent,
+        children: [{ path: 'basic-details', component: BasicDetailsComponent }]
+    },
+    
     { path: 'booking-details', component: BookingDetailsComponent },
     { path: 'list-property', component: ListPropertyComponent },
     { path: 'popular-places', component: PopularPlacesComponent },
     { path: 'reports', component: ReportsComponent },
-    { path: 'sponsors', component: SponsorsComponent,
-        children:[{path:'add-sponsors', component:AddSponsorsComponent},
-            {path:'list-sponsors', component:ListSponsorsComponent}]
-     },
+    {
+        path: 'sponsors', component: SponsorsComponent,
+        children: [{ path: 'add-sponsors', component: AddSponsorsComponent },
+        { path: 'list-sponsors', component: ListSponsorsComponent }]
+    },
 
-    { path: 'user', component: UserComponent ,
-        children:[{path:'add-users', component:AddUsersComponent},
-                {path:'list-users', component:ListUsersComponent}] },
-{ path: 'bookingForm', component: BookingFormComponent },
-{ path: 'bookingSummary', component: BookingSummaryComponent },
+    {
+        path: 'user', component: UserComponent,
+        children: [{ path: 'add-users', component: AddUsersComponent },
+        { path: 'list-users', component: ListUsersComponent }]
+    },
+    { path: 'bookingForm', component: BookingFormComponent },
+    { path: 'bookingSummary', component: BookingSummaryComponent },
     { path: 'aboutus', component: AboutusComponent },
     { path: 'privacy-policy', component: PrivacyPolicyComponent },
     { path: 'terms-and-conditions', component: TermsAndConditionsComponent },

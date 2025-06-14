@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleShareDataService } from '../simple-share-data.service';
+import { SimpleShareDataService } from '../services/simple-share-data.service';
 import { CommonModule } from '@angular/common';
 import { CurrencyPipe,UpperCasePipe } from '@angular/common';
 
