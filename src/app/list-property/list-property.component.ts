@@ -1,22 +1,21 @@
-import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { RouterModule } from '@angular/router';
-
-
-
-
-
+import { Component, OnInit } from '@angular/core';
+import { AddPropertyDataService } from '../add-property-data.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list-property',
-  imports: [MatButtonModule,RouterModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './list-property.component.html',
-  styleUrl: './list-property.component.scss'
+  styleUrls: ['./list-property.component.scss'],
 })
-export class ListPropertyComponent {
+export class ListPropertyComponent implements OnInit {
+  properties: any[] = [];
 
+  constructor(private addPropertyDataService: AddPropertyDataService) {}
 
+  ngOnInit(): void {
+    this.properties = this.addPropertyDataService.getProperty();
+  console.log('Loaded properties:',this.properties);
+  }
 }

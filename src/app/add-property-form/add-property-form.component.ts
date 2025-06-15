@@ -69,11 +69,11 @@ export class AddPropertyFormComponent implements OnInit, OnChanges {
     });
 
   }
-  onSubmit(): void {
+   onSubmit() {
     if (this.addPropertyForm.valid) {
-      this.formSubmit.emit(this.addPropertyForm.value);
-
-    }
+      console.log('Form data emitted:', this.addPropertyForm.value);
+      this.formSubmit.emit(this.addPropertyForm.value); // ← Emit to parent component
+    } 
     else {
       this.addPropertyForm.markAllAsTouched();
     }
