@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class PropertyService {
+export class addPropertyDataService {
   private apiUrl = 'http://api.dev.kutralamrooms.in/api/propertyDetails';
 
   constructor(private http: HttpClient) {}

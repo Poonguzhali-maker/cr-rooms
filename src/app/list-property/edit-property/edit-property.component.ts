@@ -1,10 +1,10 @@
 
 import { Component } from '@angular/core';
-import { AddPropertyFormComponent } from '../../add-property-form/add-property-form.component';
+
 
 @Component({
   selector: 'app-edit-property',
-  imports: [AddPropertyFormComponent], 
+  imports: [], 
   templateUrl: './edit-property.component.html',
   styleUrls: ['./edit-property.component.scss']
 })
