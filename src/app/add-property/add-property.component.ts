@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Validators } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
-import { AddPropertyDataService } from '../add-property-data.service';
+import { AddPropertyDataService } from '../services/add-property-data.service';
 import { Router } from '@angular/router';
 
 
@@ -25,8 +25,7 @@ export class AddPropertyComponent implements OnInit {
 
 
     //public is a access modifiers keyword to define visibility and accessibility of class//
-    public addPropertyForm!: FormGroup
-    password: string = '';
+    public addPropertyForm!: FormGroup;
 
     //constructor is a special method that is automatically invoked when class created, 
     //here i create constructor to with dependency injection to inject component 
@@ -45,52 +44,58 @@ export class AddPropertyComponent implements OnInit {
             pincode: ['', [Validators.required, Validators.maxLength(6)]],
             addressLine1: ['', [Validators.required]],
             addressLine2: [''],
-            Latitude: [''],
-            Longitude: [''],
+            latitude: [''],
+            longitude: [''],
+            adminImportantNotes: [''],
+            adminHighlightText: [''],
+            businessType: ['', Validators.required],
 
-
-        })
+        });
 
 
     }
 
     onBasicDetailsClick(): void {
-    this.markAllFieldsTouched(this.addPropertyForm);
-  }
-  private markAllFieldsTouched(FormGroup: FormGroup): void {
-    Object.values(FormGroup.controls).forEach(control => {
-      control.markAsTouched();
-      control.updateValueAndValidity();
-    });
-}
-
-    onSubmit():void {
-        if (this.addPropertyForm.invalid) {
-            this.addPropertyForm.markAllAsTouched();
-            return;
-        }
-
-        const formData = this.addPropertyForm.value;
-
-        this.addPropertyDataService.addProperty(formData).subscribe({
-            next: (response:any) => {
-                console.log('Saved to backend:', response);
-
-                //save data for editProperty component//
-                this.addPropertyDataService.setFormData(formData); 
-
-                //navigate to edit page//
-                this.router.navigate(['/edit-property']);
-            },
-            error: (err:any) => {
-                console.error('Error:', err);
-            }
+        this.markAllFieldsTouched(this.addPropertyForm);
+    }
+    private markAllFieldsTouched(FormGroup: FormGroup): void {
+        Object.values(FormGroup.controls).forEach(control => {
+            control.markAsTouched();
+            control.updateValueAndValidity();
         });
     }
 
+    onSaveProperty(): void {
+        if (this.addPropertyForm.valid) {
+            console.log('Form submitted:', this.addPropertyForm.value);
+
+            this.addPropertyDataService.addProperty(this.addPropertyForm.value).subscribe({
+                next: (response: any) => {
+                    console.log('Saved to backend:', response);
+
+                    //save data for listProperty component//
+
+                    this.addPropertyDataService.addPropertyToList(this.addPropertyForm.value);
+                    //navigate to edit page//
+                    this.router.navigate(['/list-property']);
+                },
+                error: (err: any) => {
+                    console.error('Error:', err);
+                }
+            });
+        }
+        else {
+            this.addPropertyForm.markAllAsTouched();
+
+
+            console.warn('Form is invalid');
+            return;
+
+        }
+
+    }
+
+
 }
-
-
-
 
 

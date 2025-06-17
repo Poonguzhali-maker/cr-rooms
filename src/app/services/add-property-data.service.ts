@@ -11,26 +11,28 @@ import { Observable } from 'rxjs';
 
 export class AddPropertyDataService {
   private apiUrl = 'http://api.dev.kutralamrooms.in/api';
-private formData: any;
+private properties: any[]=[];
 
-constructor(private http:HttpClient) {
-  console.log('Form submitted');
+
+
+constructor(private http: HttpClient) {
+
 }
 
-//send form data to backend//
-addProperty(data:any): Observable<any> {
-  return this.http.post(this.apiUrl, data);
-}
+  // Store property in the in-memory array
+  addPropertyToList(properties: any) {
+    this.properties.push(properties);
+  }
 
-//store data for editing //
-setFormData(data:any):void{
-  this.formData = data;
-  console.log();
-}
+  // Get all properties
+  getAllProperties() {
+    return this.properties ??{};
+  }
 
-getFormData():any{
-  return this.formData??{};
-}
+  // (Optional) Send to backend as before
+  addProperty(data: any): Observable<any> {
+    return this.http.post(this.apiUrl, data);
+  }
 
   
 }

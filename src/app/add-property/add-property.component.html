@@ -1,5 +1,3 @@
-
-
 <section>
 
     <a (click)="onBasicDetailsClick()" mat-button routerLink="/add-property/basic-details">
@@ -10,7 +8,7 @@
 
 
     <div class="form">
-        <form [formGroup]="addPropertyForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="addPropertyForm" (ngSubmit)="onSaveProperty()">
             <div>
                 <div class="addPropertyFormRow">
                     <mat-form-field appearance="fill">
@@ -33,19 +31,19 @@
 
                     <mat-form-field>
                         <mat-label>ADMIN IMPORTANT NOTES</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput formControlName="adminImportantNotes"></textarea>
                     </mat-form-field>
 
                     <mat-form-field>
                         <mat-label for="name">ADMIN.HIGHLIGHT TEXT</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput formControlName="adminHighlightText"></textarea>
                     </mat-form-field>
                 </div>
 
                 <div class="addPropertyFormRow">
                     <mat-form-field>
                         <mat-label>Property Type</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="propertyType">
                             <mat-option value="one">Lodge</mat-option>
                             <mat-option value="two">Cottage</mat-option>
                             <mat-option value="three">Bungalow</mat-option>
@@ -58,7 +56,7 @@
 
                     <mat-form-field>
                         <mat-label>Business Type</mat-label>
-                        <mat-select>
+                        <mat-select formControlName="businessType">
                             <mat-option value="one">Private Limited</mat-option>
                             <mat-option value="two">Proprietors</mat-option>
                             <mat-option value="three">Partnership</mat-option>
@@ -74,16 +72,17 @@
                 <div class="addPropertyFormRow">
                     <mat-form-field>
                         <mat-label>Address line 1</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput formControlName="addressLine1"></textarea>
 
                         <mat-error>Adress is required</mat-error>
                     </mat-form-field>
                     <mat-form-field>
                         <mat-label>Adress line 2</mat-label>
-                        <textarea matInput></textarea>
+                        <textarea matInput formControlName="addressLine2"></textarea>
                     </mat-form-field>
                 </div>
-                <div class="addPropertyFormRow">
+
+                <div class=" addPropertyFormRow">
                     <mat-form-field>
                         <mat-label for="name">City</mat-label>
                         @if(addPropertyForm.controls['cityName'].touched &&
@@ -101,18 +100,18 @@
 
                     <mat-form-field>
                         <mat-label for="name">Latitude</mat-label>
-                        <input matInput type="text" formControlName="Latitude">
+                        <input matInput type="text" formControlName="latitude">
                     </mat-form-field>
 
                     <mat-form-field>
                         <mat-label for="name">Longitude</mat-label>
-                        <input matInput type="text" formControlName="Longitude">
+                        <input matInput type="text" formControlName="longitude">
                     </mat-form-field>
 
                 </div>
 
             </div>
-            <button mat-raised-button>Save and Next</button>
+            <button mat-raised-button type ="submit">Save and Next</button>
         </form>
     </div>
 </section>
